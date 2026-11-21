@@ -91,7 +91,7 @@ function App() {
       <main>
         {tab === 'home' && <section className="home-view">
           <div className="hero">
-            <img src="/images/elena-osintseva.jpg" alt="Елена Осинцева" className="hero-photo"/>
+            <img src={`${import.meta.env.BASE_URL}images/elena-osintseva.jpg`} alt="Елена Осинцева" className="hero-photo"/>
             <div className="hero-shade"/>
             <div className="hero-content">
               <span className="eyebrow">ПРОСТРАНСТВО ЗАБОТЫ О СЕБЕ</span>
@@ -144,7 +144,7 @@ function App() {
 
         {tab === 'profile' && <section className="page-view">
           <button className="back-link" onClick={() => setTab('home')}><ArrowLeft size={16}/> На главную</button>
-          <div className="profile-hero"><img src="/images/elena-osintseva.jpg" alt="Елена Осинцева"/><span className="eyebrow">ПСИХОЛОГ</span><h1>Елена<br/><em>Осинцева</em></h1><p>Помогаю внимательнее относиться к себе, понимать свои чувства и находить собственные решения.</p></div>
+          <div className="profile-hero"><img src={`${import.meta.env.BASE_URL}images/elena-osintseva.jpg`} alt="Елена Осинцева"/><span className="eyebrow">ПСИХОЛОГ</span><h1>Елена<br/><em>Осинцева</em></h1><p>Помогаю внимательнее относиться к себе, понимать свои чувства и находить собственные решения.</p></div>
           <div className="about-card"><h3>О консультациях</h3><p>Здесь появится информация о подходе Елены, направлениях работы, форматах и продолжительности консультаций.</p><p className="muted">Текст и профессиональные сведения необходимо согласовать с Еленой перед публикацией.</p></div>
           <div className="about-card"><h3>Связаться с Еленой</h3><p>Выберите удобный мессенджер. Ссылки добавляются в настройках проекта перед запуском.</p><div className="messenger-buttons">{(['MAX','Telegram','WhatsApp'] as const).map((name, i) => <button key={name} onClick={() => { const url = [CONTACTS.max, CONTACTS.telegram, CONTACTS.whatsapp][i]; if (url) window.open(url, '_blank', 'noopener,noreferrer') }} disabled={!([CONTACTS.max, CONTACTS.telegram, CONTACTS.whatsapp][i])}>{name}<ChevronRight size={16}/></button>)}</div><small className="privacy-note">Контактные ссылки пока не подключены.</small></div>
         </section>}
